@@ -1,0 +1,38 @@
+Floripa Gophers
+Monitoramento automático usando Go templates
+
+Thiago Trennepohl
+
+* whoami
+Thiago Trennepohl
+Devops at Involves Tecnologia
+
+@pohl_thiago
+github.com/thiagotrennepohl
+
+
+* Agenda
+- O que é Go templates?
+- Como descobri Go templates
+- Como usar Go templates
+
+
+* O que é Go templates? - Overview
+O pacote text/template permite renderizar texto e html baseados em dados.
+
+Os templates são executados aplicando-os em uma estrutura de dados.
+
+As anotações no template referem-se a  campos de uma estrutura ou valores de um map.
+
+Para representar um valor em um template utiliza-se um "." e para controlar as estruturas
+de dados é posível utilizar de alguns recursos de controle como:
+if, range e reutilização de outros templates.
+
+
+* O que é Go templates? - Quick demo
+
+.play test.go /^func main/,/^}/
+
+* Como descobri Go templates?
+
+.image work.gif
