@@ -14,7 +14,7 @@ github.com/thiagotrennepohl
 * Agenda
 - O que é Go templates?
 - Como descobri Go templates
-- Como usar Go templates
+- Como usamos Go templates
 
 
 * O que é Go templates? - Overview
@@ -31,8 +31,110 @@ if, range e reutilização de outros templates.
 
 * O que é Go templates? - Quick demo
 
-.play test.go /^func main/,/^}/
+.play demo.go /^func main/,/^}/
 
 * Como descobri Go templates?
 
 .image work.gif
+
+
+* Como descobri Go templates? - Início
+
+github.com/jwilder/docker-gen
+github.com/jwilder/nginx-proxy
+
+Mas como isso acontece? que bruxaria é essa?
+
+
+* Como descobri Go templates? - Mas como funciona?
+
+Basicamente o app conecta na api do Docker roda um inspect nos containers
+de acordo com a configuração que você especificou.
+
+E para cada container ele joga as informações em uma variável do tipo: 
+
+ RuntimeContainers
+
+* Como descobri Go templates? - Mas como funciona?
+
+Struct que o foi criada especificamente para isso.
+
+    type RuntimeContainer struct {
+        ID           string
+        Addresses    []Address
+        Networks     []Network
+        Gateway      string
+        Name         string
+        Hostname     string
+        Image        DockerImage
+        Env          map[string]string
+        Volumes      map[string]Volume
+        Node         SwarmNode
+        Labels       map[string]string
+        IP           string
+        IP6LinkLocal string
+        IP6Global    string
+        Mounts       []Mount
+        State        State
+    }
+
+* Como descobri Go templates? - Mas como funciona?
+
+Depois que ele pega todas as informações de tudo, sério tudo desde rede até volumes.
+É feito um range em todas as configurações especificadas e para cada configuração é criado um arquivo.
+
+    func (g *generator) generateFromContainers() {
+        containers, err := g.getContainers()
+        if err != nil {
+            log.Printf("Error listing containers: %s\n", err)
+            return
+        }
+        for _, config := range g.Configs.Config {
+            changed := GenerateFile(config, containers)
+            if !changed {
+                log.Printf("Contents of %s did not change. Skipping notification '%s'", config.Dest, config.NotifyCmd)
+                continue
+            }
+            g.runNotifyCmd(config)
+            g.sendSignalToContainer(config)
+        }
+    }
+
+* Como descobri Go templates? - Mas como funciona?
+
+Mas no fim, o tmpl.ExecuteTemplate é o que reina!
+
+    func executeTemplate(templatePath string, containers Context) []byte {
+        tmpl, err := newTemplate(filepath.Base(templatePath)).ParseFiles(templatePath)
+        if err != nil {
+            log.Fatalf("Unable to parse template: %s", err)
+        }
+
+        buf := new(bytes.Buffer)
+        err = tmpl.ExecuteTemplate(buf, filepath.Base(templatePath), &containers)
+        if err != nil {
+            log.Fatalf("Template error: %s\n", err)
+        }
+        return buf.Bytes()
+    }
+
+* Como descobri Go templates? - Mas como funciona?
+
+Wait! mas esse newTemplate não é uma função do pacote template!
+
+ ** mostrar código muito grande **
+
+
+* Como usamos Go templates? - A ideia
+
+.image smart.gif
+
+
+* Como usamos Go templates? - Renan o mago dos templates
+
+
+.image renan3.jpg 300 300
+
+    ** Mostrar templates super maneiros **
+
+
