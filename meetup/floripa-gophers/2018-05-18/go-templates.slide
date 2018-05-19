@@ -133,8 +133,13 @@ Wait! mas esse newTemplate não é uma função do pacote template!
 * Como usamos Go templates? - Renan o mago dos templates
 
 
-.image renan3.jpg 300 300
+.image renan.jpeg 300 300
 
     ** Mostrar templates super maneiros **
 
 
+* O que mais usa Go templates? - Present
+
+- Esta ferramenta maravilhosa de slides
+- Hugo - ferramenta de Blogs
+- Alguns web frameworks!
