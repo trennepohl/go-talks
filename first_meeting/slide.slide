@@ -7,12 +7,14 @@ Thiago Trennepohl
 
 - Sobre a linguagem
 - Hello World
-- Variáveis
-- Funções
-- Estruturas de decisão
-- Operadores lógicos (básicos)
+- Semelhanças com outras linguagens
+- Variáveis e Ponteiros
+- Structs
+- Funções e Retornos
+- Interfaces
 - Slices
 - Loops
+
 
 * Sobre a linguagem
 
@@ -31,265 +33,181 @@ Começaremos com o clássico Hello World
 
 .code ../sample_codes/helloworld.go
 
-* Variáveis e Tipos
 
-Variáveis são espaços na memória capazes de representar valores e expressões.
+* Semelhanças com outras linguagens - If
 
-As variáveis em Go são declaradas da seguinte forma:
+Go:
 
-
- var minhaVariavel int
-
-*var* -> Palavra reservada da linguagem para declarar variáveis
-
-*minhaVariavel* -> nome da minha variavel (poderia ser até joaozinho)
-
-*int* -> Tipo primitivo da minha variavel (quer dizer que eu só posso armazenar números nela)
-
-
-* Variáveis e Tipos
-
-Mas também é possível declar uma variável já com valor.
-
- var minhaVariavel int = 10
-
-*=* -> Atribuição de valor
-
-*10* -> Valor desejado
-
-* Variáveis e Tipos
-
-Golang tem diversos tipos
- 
- bool
- string
- int  int8  int16  int32  int64
- uint uint8 uint16 uint32 uint64 uintptr
- byte // alias for uint8
- rune // alias for int32
- float32 float64
- complex64 complex128
-
-Os que usaremos hoje serão:
-
- int
- string
- bool
-
-* Variáveis e Tipos
-
-Uma variável do tipo *int* serve para armazenar números.
-
- var numero = 1
-
-Uma variável do tipo *string* serve para armazenar texto.
-
- var nome="Gopher"
-
-Uma variável do tipo *bool* serve para armazenar valores booleanos (true|false).
-
- var golangEManeiro = true
-
-* Funções
-
-São blocos de código reutilizáveis do seu programa.
-
-Existem diversas formas de declarar um função em Go.
-
-Fora do bloco *main* vamos criar uma função que imprime nome:
-
- func printName(name string){
-     fmt.Println(name)
- }
- 
-*func*  palavra reservada da linguagem para declaração de Funções.
-
-*printName*     nome da função.
-
-*name* *string*  argumentos da função, neste caso significa que a função *printName* espera um argumento do tipo string.
-
-* Funções
-
-Agora vamos chamar a função printName dentro do bloco main.
-
- package main
-
- import (
-     "fmt"
- ) 
-
-
- func main() {
-     printName("Involves Gophers")
- }
-
- func printName(name string){
-     fmt.Println(name)
- }
-
-* Funções
-
-Em go funções podem ter um ou mais retornos, no geral as funções em Go retornam dois valores.
-Isso em razão de uma das boas práticas de desenvolvimento em Go que é a checagem de erros(exemplo próximo slide)
-
-    func contaLetras(name string) int {
-        return len(name)
-    }
-
-A função len() retorna a quantidade de indíces que um vetor tem, no caso todas as strings são vetores de char.
-Na contaLetras, será retornado a quantidade de letras, pois cada uma ocupa uma posição no vetor.
-
-
-* Condicoes
-
-Condições são estuturas de decisão lógica do programa e são representadas pela seguinte estrutura:
-
-    if 1 > 0 {
-        fmt.Println("1 é maior que 0")
-    }
-
-Neste caso se le:
-
-"Se 1 é maior que 0, então imprima '1 é maior que 0'"
-
-Se o resultado da condição for verdadeiro, ele irá executar o que está dentro do bloco de código.
-
-Caso contrário o programa seguirá executando os próximos comandos.
-
-* Estrutura de condição - Operadores lógicos
-
- if 0 < 1 {
-     fmt.Println("0 é menor que 1")
- }
-
- if 0 == 0 {
-     fmt.Println("0 é igual a 0")
- }
-
- if 1 != 2 {
-     fmt.Println("1 é diferente de 2")
- }
-
-
-* Funções e estruturas de decisão
-
-Exemplo de uma função que retorna dois valores:
-
- func contaLetras(text string) (int, err) {
-     if len(text) < 1 {
-         return 0, errors.New("O texto não possui nenhuma letra")
-     }
-     return len(text),nil
- }
-
-* Funções e estruturas de decisão - aplicação
- 
- import (
-  "errors"
-  "fmt"
-  "log"
-  )
-
- func main(){
-    count, err := contaLetras("a")
-    if err != nil {
-        log.Fatal(err)
-    }
-    fmt.Println(count)
- }
-
- func contaLetras(text string) (int, error) {
-     if len(text) < 1 {
-         return 0, errors.New("O texto não tem nenhuma letra")
-    }
-    return len(text), nil
- }
-
-
-* Slices
-
-Slices é o array de Go.
-Um array tem um tamanho fixo na memória, em outras linguagens você tem que redimensionar manualmente o array.
-Em go ele faz isso sozinho para você.
-
-Exemplo:
-
-  var names []string = []string{"maria", "josé", "joao"}
-  fmt.Println(names[0])
-
-O que acontece com o código acima?
-
-
-* Slices
-Arrays possuem indices ou posições.
-
- var names []string = []string{"maria", "josé", "joao"}
-
-No caso do slice *names* temos 3 posições.
-Se eu fizer um print do slice names indexado da posição 1 o resultado será?
-  
-  fmt.Println(names[1])
-
-
-* Slices
-
-Para adicionar um novo elemento no slice basta fazer o seguinte:
- 
- append(names,"camila")
-
-* Slices
-
-Mas para remover não é tão simples, eu preciso recortar o array
-Para pegar um recorte de um slice basta eu delimitar o indice inicial e final.
-
-  names = names[1:]
-
-A instrução acima irá fazer um recorte do slice a partir da segunda posição até a ultíma posição, ou seja deletamos a primeira posição do slice.
-
-
-* Slices - loops
-
-Loops servem para iterar sobre slices.
-
-  for index,value := range names {
-      fmt.Println(index)
-      fmt.Println(value)
+  if true {
+    fmt.Println("Verdadeiro!")
   }
 
-* Desafio - Coding Dojo
+Python:
+  
+  if(True):
+    print("Verdadeiro!")
 
- 99 Prolog problemas
+Java: 
+  
+  public class Teste {
+    public static void main(String []args){
+      if(true){
+        System.out.println("Verdadeiro");
+      }
+    }
+  }
 
- The purpose of this problem collection 
- is to give you the opportunity to practice your skills in logic programming. 
- Your goal should be to find the most elegant solution of the given problems.
-  Efficiency is important, but logical clarity is even more crucial. 
+* Semelhanças com outras linguagens - For
+
+Go: 
+
+  for index,value := range colecao {
+    fmt.Println(index, value)
+  }
+
+Python:
+  
+  for v in range(colecao):
+    fmt.Println(v)
+
+Java:
+  
+  for(int i : colecao) {
+    System.out.println(i)
+  }
 
 
-* Problema 1
+* Variáveis e Ponteiros
 
-Crie uma função que retorne o valor da última posição de um slice de string.
+Mas também é possível declarar uma variável já com valor. ou com o seu *zero value*
 
- var someSlice []string = []string{"a","b","c","d","e","f"}
+ minhaVariavelInteira := 0
 
-* Problema 2
+* Variáveis e Ponteiros
 
-Crie uma função que retorne o valor da penúltima posição de um slice de string
+Entretanto, assim como o C, C++, C#, Ada e outras, Go também tem pointeiros
 
- var someSlice []string = []string{"a","b","c","d","e","f"}
+Basicamente, pointeiros são variáveis que possuem um endereço de memória.
 
-* Problema 3
+Estes endereços de memória, geralmente são referências a outras variáveis já alocadas na memória.
 
-Crie uma função que retorne a posição N de um slice de int
+* Variáveis e Ponteiros
 
- var someIntSlice []int = []int{1,2,3,4,5,6,7,8}
+.code ../sample_codes/pointers.go
 
+  Joao
+  0xc4200801c0
 
-* Problema 4
+* Variáveis e Ponteiros
 
-Crie uma função que identifique se uma string é um palindromo
+  calculaImpostoDeRenda(&minhaRenda)
 
-  palindromo := "natan"
+* Variáveis e Ponteiros
+
+  func calculaImpostoDeRenda(renda *int){
+    //faz calculos
+  }
+
+* Structs
+
+Ah, mas então Go não é orientado a objetos né?
+
+Não é Herança que torna uma linguagem orientada a objeto, mas a qualidade da abstração aplicada pelo desenvolvedor.
+
+* Structs
+
+Com structs é possível fazer muitas coisas, como:
+
+ - Tipos (sim da mesma forma que no Java)
+ - Métodos (sim da mesma forma que no Java)
+ - Implementação de interfaces (sim da mesma forma que no Java)
+ - Polimorfismo (Sim da mesma forma que no Java)
+
+* Structs
+
+  type Pessoa struct {
+    Nome string
+    Idade int
+    Cpf int
+    Telefone string
+    Endereco string
+  }
+
+  joaozinho := Pessoa{}
+
+  mariazinha := Pessoa{
+    Nome: "Maria da Silva Sauro",
+    Idade: 19,
+    Cpf: 123456789,
+    Telefone: "554899854214",
+    Endereco: "Gopher street, numero 2008",
+  }
+
+  fmt.Println(joaozinho)
+  fmt.Println(mariazinha)
+
+* Structs
+
+Ah, mas java tu pode falar quais atributos são publico e quais são privados
+
+Em go também!
+
+  type Pessoa struct {
+    Nome string //Primeira letra maíuscula é público
+    sobrenome string //Primeira letra minúscula é privada
+  }
+
+* Structs
+
+Ah e os métodos?
+
+  type Pessoa struct {
+    Nome string //Primeira letra maíuscula é público
+    sobrenome string //Primeira letra minúscula é privada
+  }
+
+  func (p *Pessoa) ImprimeSobrenome() {
+    fmt.Println(p.sobrenome)
+  }
+
+  joaozinho := Pessoa{"Joao", "Silva"}
+  joaoinho.ImprimeSobrenome()
+
+ 
+* Funcoes
+
+Digamos então, que o tipo Pessoa que criamos tem métodos que calcula o imposto de renda.
+
+ func (p *Pessoa) CalculaImpostoDeRenda(renda int) int {
+   //faz calculos
+   return 0
+ }
+
+Mas perai, para eu calcular a renda, o parametro *renda* não pode ser 0
+ 
+ Bom, neste caso uma boa prática é retornar dois valores:
+ - O valor que você espera 
+ - E um erro
+ Nossa função ficaria assim:
+
+ func (p *Pessoa) CalculaImpostoDeRenda(renda int) (int, error) {
+   if renda <= 0 {
+     return 0, fmt.Errorf("Hey eu esperava que você mandasse um valor válido, mas eu recebi %d", renda)
+   }
+   calculo := renda / 100 //calculo ficticio
+   reutrn calculo, nil
+ }
+
+* Funcoes
+
+E nós a chamariamos desta forma:
+
+ joaozinho := Pessoa{"Joao"}
+
+ resultado, erro := joaozinho.CalculaImpostoDeRenda(0)
+ if erro != nil {
+   panic(erro)
+ }
 
 * Considerações Finais
 
@@ -299,6 +217,7 @@ Livros:
 
 Youtube:
  - Just for func (https://www.youtube.com/channel/UC_BzFbxG2za3bp5NRRRXJSw)
+ - https://gophercises.com/
 
 Probleminhas:
  - codefights.com
