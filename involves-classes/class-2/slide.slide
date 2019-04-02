@@ -1,0 +1,250 @@
+Involves Gophers 
+Encontro 1 - Review, Lógica e introdução a linguagem
+
+Thiago Trennepohl
+
+* Agenda
+
+- Sobre a linguagem
+- Hello World
+- Comparações com portugol
+- Tipos de variáveis em Go
+- Funções
+
+
+* Sobre a linguagem
+
+Go é uma liguagem de programação open source que nasceu no Google.
+É uma linguagem tipada e compilada, diferente de javascript é interpretada.
+Go nasceu com o objetivo de resolver alguns problemas da computação moderna, a principal dela a concorrência.
+
+
+* Hello World
+
+Começaremos com o clássico Hello World
+
+.image cheap.png
+
+* Hello World
+
+.code ../../sample_codes/helloworld.go
+
+
+* Semelhanças com outras linguagens - Declaração de variáveis
+
+
+Go:
+
+  var nome string = "Thiago" 
+  e
+  nome := "Thiago"
+  
+Não existe diferença nenhuma, isto funciona, pois Go possui inferencia de tipo.
+
+Portugol:
+  
+  cadeia nome = "Thiago"
+
+Java: 
+  
+  private String nome = "Thiago"
+
+
+* Semelhanças com outras linguagens - Escreva
+
+Go:
+
+  fmt.Println(nome)
+
+Portugol:
+  
+  escreva(nome)
+
+Java: 
+  
+ System.out.println(nome)
+
+
+* Semelhanças com outras linguagens - If
+
+Go:
+
+  if nome == "Thiago" {
+    fmt.Println("Verdadeiro!")
+  }
+
+Python:
+  
+  se(nome == "Thiago"){
+    escreva("Verdadeiro!");
+  }
+
+Java: 
+  
+  if(nome.Equals("Thiago")){
+    System.out.println("Verdadeiro");
+  }
+
+* Semelhanças com outras linguagens - Operadores lógicos - E
+
+Go:
+  
+    if nome == "Thiago" && nome != "Maria" {
+      fmt.Println("verdadeiro")
+    }
+
+Portugol:
+
+  se(nome == "Thiago" e nome != "Maria") {
+    escreva("Verdadeiro!");
+  }
+
+Java:
+
+   if(nome.Equals("Thiago") && !nome.Equals("Maria")){
+    System.out.println("Verdadeiro");
+  }
+
+* Semelhanças com outras linguagens - Operadores lógicos - OU
+
+Go:
+    
+    if nome == "Thiago" || nome != "Maria" {
+      fmt.Println("verdadeiro")
+    }
+
+Portugol:
+
+  se(nome == "Thiago" ou nome != "Maria") {
+    escreva("Verdadeiro!");
+  }
+
+Java:
+
+   if(nome.Equals("Thiago") || !nome.Equals("Maria")){
+    System.out.println("Verdadeiro");
+  }
+
+* Semelhanças com outras linguagens - Operadores Relacionais
+
+Estes não mudam eles continuam sendo
+
+- >
+- <
+- >=
+- <=
+- ==
+- !
+- !=
+  
+
+* Semelhanças com outras linguagens - For
+
+Go: 
+
+  for i:=0; i< 10; i++ {
+    fmt.Println(i, nome)
+  }
+
+Python:
+  
+  para(inteiro i = 0; i < 10; i++){
+    escreva(i + " " + nome);
+  }
+
+Java:
+  
+  for(int i = 0; i < 10; i++) {
+    System.out.println(i + " "+ nome)
+  }
+
+
+* Tipos de variáveis
+
+  bool
+
+  string
+
+  int  int8  int16  int32  int64
+  uint uint8 uint16 uint32 uint64 uintptr
+
+  byte // alias for uint8
+
+  rune // alias for int32
+      // represents a Unicode code point
+
+  float32 float64
+
+  complex64 complex128
+
+* Tipos de variáveis
+
+.play variables.go
+
+
+* Funções
+
+  func imprimeNomeHacker(nome string) {
+    fmt.Println("meu nome é: " nome, " e você acabou de ser hackeado")
+  }
+
+* Funções
+
+  func pedeNome() string {
+    var nome string
+    fmt.Scanln(&nome)
+    return nome
+  }
+
+* Funções
+
+.code pedenome.go
+
+
+* Exercícios
+
+Escreva um algoritmo onde o usuário informa:
+Nome do funcionário
+CPF
+Salário
+
+Depois disso, mostre estas informações no terminal.
+
+
+* Exercícios
+
+Escreva um algoritmo para realizar o calculo de imposto de renda de uma pessoa.
+Deverá ser solicitado nome e salario.
+Apresente o salario buto, liquido, classe de desconto e total descontado do salário.
+
+* Exercícios 
+
+Assistir este vídeo aqui.
+https://www.infoq.com/br/presentations/the-best-feature-of-go
+
+
+
+
+* Considerações Finais
+
+Coloquem seus códigos no github! criem um repositório para as aulas de Go e façam push dos seus códigos!
+
+Livros:
+ - Go em ação
+ - Programando em Go (Casa do código)
+
+Youtube:
+ - Just for func (https://www.youtube.com/channel/UC_BzFbxG2za3bp5NRRRXJSw)
+ - https://gophercises.com/
+
+Probleminhas:
+ - codefights.com
+
+
+
+
+
+
+
+
+
