@@ -210,12 +210,15 @@ Salário
 
 Depois disso, mostre estas informações no terminal.
 
+.link ./employee.go
 
 * Exercícios
 
 Escreva um algoritmo para realizar o calculo de imposto de renda de uma pessoa.
 Deverá ser solicitado nome e salario.
 Apresente o salario buto, liquido, classe de desconto e total descontado do salário.
+
+.link ./imposto.go
 
 * Exercícios 
 
