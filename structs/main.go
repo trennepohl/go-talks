@@ -15,7 +15,6 @@ func main() {
 		Curso: "Como desviar de balas",
 		Turma: 12,
 	}
-	renan := &aluno.Renan{}
 
 	situacao := universidade.SituacaoFinal(raffa)
 	fmt.Println(situacao)

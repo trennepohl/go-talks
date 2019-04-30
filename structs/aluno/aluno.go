@@ -10,16 +10,5 @@ type Aluno struct {
 }
 
 func (a *Aluno) CalculaMedia() float32 {
-	return 10
-}
-
-type Renan struct {
-}
-
-func (r *Renan) CalculaMedia() float32 {
-	return 10
-}
-
-func (r *Renan) TrazMaterial() {
-
+	return (a.Notas[0] + a.Notas[1] + a.Notas[2]) / float32(len(a.Notas))
 }

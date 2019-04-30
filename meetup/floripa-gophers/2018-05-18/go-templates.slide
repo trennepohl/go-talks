@@ -12,12 +12,40 @@ github.com/thiagotrennepohl
 
 
 * Agenda
-- O que é Go templates?
-- Como descobri Go templates
-- Como usamos Go templates
+- O problema
+- Solução
+- Go templates
+- Como a sulução funciona
+- Apps que utilizam Go templates
 
 
-* O que é Go templates? - Overview
+* O problema - Muitos containers não monitorados
+
+
+- Na época eram cerca de 200 clientes (1 container cada)
+- Receitas do Chef para atualizar o monitoramento
+- Um arquivo json para cada máquina
+- Cerca de 400 Url's para monitorar
+
+
+* O problema - Como eu me sentia
+
+E era assim que eu me sentia quando um deploy novo era feito
+
+.image work.gif
+
+* Solução - Ei! como isso funciona?
+
+
+- github.com/jwilder/nginx-proxy 
+- Esse repositório é uma imagem do nginx que gera configuração automática
+ docker run -d -e VIRTUAL_HOST=example.com my-image 
+- github.com/jwilder/nginx-proxy 
+- templates?
+- To the docs batman!
+
+
+* Solução - Overview de go templates
 O pacote text/template permite renderizar texto e html baseados em dados.
 
 Os templates são executados aplicando-os em uma estrutura de dados.
@@ -29,33 +57,56 @@ de dados é posível utilizar de alguns recursos de controle como:
 if, range e reutilização de outros templates.
 
 
-* O que é Go templates? - Quick demo
+* Solução - Overview de go templates
 
 .play demo.go /^func main/,/^}/
 
-* Como descobri Go templates?
+* Solução - Utilizando docker-gen
+Se utiizarmos o docker-gen para gerar config
+não precisamos mais do chef!
 
-.image work.gif
+.image smart.gif
+
+* Solução - Renan o mago dos templates
+
+.image renan.jpeg 300 300
+
+* Solução - Renan o mago dos templates
+
+  - targets:
+  {{ range $index, $value := $ }}
+  {{ if $value.Env.VIRTUAL_HOST }}
+  {{ if $value.Env.SHARED }}
+  {{ range $index, $fqdn := split $value.Env.VIRTUAL_HOST "," }}
+    - {{ $fqdn }}
+    - {{ $fqdn }}/sistema/status/acao.action
+  {{ end }}
+  {{ else }}
+    - {{ $value.Env.VIRTUAL_HOST }}
+    - {{ $value.Env.VIRTUAL_HOST }}/sistema/status/acao.action
+  {{ end }}
+  {{ end }}
+  {{ end }}
 
 
-* Como descobri Go templates? - Início
+* Solução - Solução final
 
-github.com/jwilder/docker-gen
-github.com/jwilder/nginx-proxy
+.image diagram.jpg 500 700
 
-Mas como isso acontece? que bruxaria é essa?
+* Como a solução funciona
+
+Basicamente o docker-gen conecta na api do Docker roda um inspect nos containers
+e renderiza um arquivo de texto de acordo com 
+a configuração e o template que você especificou.
 
 
-* Como descobri Go templates? - Mas como funciona?
-
-Basicamente o app conecta na api do Docker roda um inspect nos containers
-de acordo com a configuração que você especificou.
+* Como a solução funciona
 
 E para cada container ele joga as informações em uma variável do tipo: 
 
  RuntimeContainers
 
-* Como descobri Go templates? - Mas como funciona?
+* Como a solução funciona
 
 Struct que o foi criada especificamente para isso.
 
@@ -78,7 +129,7 @@ Struct que o foi criada especificamente para isso.
         State        State
     }
 
-* Como descobri Go templates? - Mas como funciona?
+* Como a solução funciona
 
 Depois que ele pega todas as informações de tudo, sério tudo desde rede até volumes.
 É feito um range em todas as configurações especificadas e para cada configuração é criado um arquivo.
@@ -100,7 +151,7 @@ Depois que ele pega todas as informações de tudo, sério tudo desde rede até 
         }
     }
 
-* Como descobri Go templates? - Mas como funciona?
+* Como a solução funciona
 
 Mas no fim, o tmpl.ExecuteTemplate é o que reina!
 
@@ -118,24 +169,23 @@ Mas no fim, o tmpl.ExecuteTemplate é o que reina!
         return buf.Bytes()
     }
 
-* Como descobri Go templates? - Mas como funciona?
+* Como a solução funciona
 
 Wait! mas esse newTemplate não é uma função do pacote template!
 
- ** mostrar código muito grande **
+* Como a solução funciona
+Não é mesmo, a função newTemplate retorna um template
+só que com muitas funções criadas para ajudar a filtrar,
+procurar e agrupar os dados
+
+ ** Mostrar código super grande ** 
 
 
-* Como usamos Go templates? - A ideia
+* O que mais usa Go templates? - Present
 
-.image smart.gif
-
-
-* Como usamos Go templates? - Renan o mago dos templates
-
-
-.image renan.jpeg 300 300
-
-    ** Mostrar templates super maneiros **
+- Esta ferramenta maravilhosa de slides
+- Hugo - ferramenta de Blogs
+- Alguns web frameworks!
 
 
 * O que mais usa Go templates? - Present

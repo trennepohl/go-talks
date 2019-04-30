@@ -1,6 +1,7 @@
 package universidade
 
 import (
+	"fmt"
 	"testing"
 )
 
@@ -9,6 +10,7 @@ type AlunoMock struct {
 }
 
 func (a *AlunoMock) CalculaMedia() float32 {
+	fmt.Println(a.RetornaMedia())
 	return a.RetornaMedia()
 }
 
