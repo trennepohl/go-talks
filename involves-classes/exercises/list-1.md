@@ -6,6 +6,8 @@ Uma palavra palindroma é uma palavra que quando escrita de tráz para frente te
  - Natan
  - Ana
  - Ovo
+ 
+*dica: for i := len(palavra) - 1; i >= 0; i-- {*
 
 
 ## 2 - Crie um cadastro de pessoas
