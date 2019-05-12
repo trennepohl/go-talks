@@ -16,3 +16,5 @@ E então acessar no seu navegador de preferência o endereço: <br>
 
 - [Aula 2](https://talks.godoc.org/github.com/thiagotrennepohl/go-talks/involves-classes/class-2/slide.slide#1)
 - [Aula 3](https://talks.godoc.org/github.com/thiagotrennepohl/go-talks/involves-classes/class-3/slide.slide#1)
+
+- [Aula 4](#involves-classes/class-4)
