@@ -29,7 +29,7 @@ Todos os personagens possuem os mesmos atributos:
  - Este atributo influencia no poder de ataques mágicos e defesa mágica.
  
 - Sorte
- - Este atributo influencia nas chances de fuga e danos críticos
+  - Este atributo influencia nas chances de fuga e danos críticos
    - Cada ponto em sorte aumenta em 5% as chances de fugas e danos críticos.
    
 ### Atributos de batalha
