@@ -33,12 +33,12 @@ Todos os personagens possuem os mesmos atributos:
    - Cada ponto em sorte aumenta em 5% as chances de fugas e danos críticos.
    
 ### Atributos de batalha
-pontos de vida: 100 pontos
-Ataque: (forca/10 + dano da arma) - defesa-do-oponente
-Defesa: (stamina/8 + valor de armadura(se houver))
-Evasão: (Agilidade/7 + valor de items(se houver))
-Chance de dano crítico: (sorte / 6)%
-Chance de Fuga: (sorte / 6)%
+- pontos de vida: 100 pontos
+- Ataque: (forca/10 + dano da arma) - defesa-do-oponente
+- Defesa: (stamina/8 + valor de armadura(se houver))
+- Evasão: (Agilidade/7 + valor de items(se houver))
+- Chance de dano crítico: (sorte / 6)%
+- Chance de Fuga: (sorte / 6)%
 
 ### Oponentes
 O jogo criará randomicamente um oponente para o jogador. Cada round que o jogador vencer o jogo ficará mais difícil.
