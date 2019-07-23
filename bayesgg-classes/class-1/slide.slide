@@ -5,7 +5,7 @@ Thiago Trennepohl
 
 * Agenda
 
-- Why Golang & What are going to learn?
+- Why Golang & What are we going to learn?
 - Golang setup
 - Basic algorithms
 - Exercises
@@ -49,6 +49,9 @@ Checkout the full doc at https://golang.org/conduct
 
 * Golang setup
 
+1 - Install golang
+2 - Setup GOPATH and folders
+2 - Install visual studio code
 
 * What are algorithms?
 
@@ -61,10 +64,10 @@ How different is the previous statement to a cake recipe? the problem?
 .image img/cake.jpg 400 600
 
 * What are algorithms
-- Step 1 -> Preheat oven to 350F
-- Step 2 -> In the bowl of a stand mixer (or in a large bowl using an electric mixer) cream together the butter.
-- Step 3 -> ...
-- Last step -> eat the whole cake alone.
+- Step 1 - Preheat oven to 350F
+- Step 2 - In the bowl of a stand mixer (or in a large bowl using an electric mixer) cream together the butter.
+- Step 3 - ...
+- Last step - eat the whole cake alone.
 
 * How would you do to change a car tire?
 
