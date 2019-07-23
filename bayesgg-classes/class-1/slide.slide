@@ -1,0 +1,106 @@
+Bayesgg Gophers
+1st meeting - Golang and Programming intro
+
+Thiago Trennepohl
+
+* Agenda
+
+- Why Golang & What are going to learn?
+- Golang setup
+- Basic algorithms
+- Exercises
+
+* Disclaimer
+
+Broken english ahead!
+
+* Course duration
+
+- 5 weeks for the basics
+- Unlimited for careers and building systems
+
+* Why Golang?
+Golang is easy to learn, easy to code and easy to solve real world problems
+
+Also golang COC (Code of conduct) is amazing!
+
+* Go community COC
+
+- Be friendly and welcoming
+- Be patient
+- Be thoughtful
+- Be respectful
+- Be charitable
+- Interpret the arguments of others in good faith, do not seek to disagree.
+- Avoid destructive behavior
+
+* Go community COC
+
+Checkout the full doc at https://golang.org/conduct
+
+* What are we going to learn?
+
+- Basics of programming logic
+- Types and variables 
+- Decision Structures
+- Logic Operators
+- Vectors and Matrixes
+- Functions (not f(x)=something)
+
+* Golang setup
+
+
+* What are algorithms?
+
+Algorithms are steps/rules set in a logic order aiming to solve a problem.
+
+* What are algorithms?
+
+How different is the previous statement to a cake recipe? the problem?
+
+.image img/cake.jpg 400 600
+
+* What are algorithms
+- Step 1 -> Preheat oven to 350F
+- Step 2 -> In the bowl of a stand mixer (or in a large bowl using an electric mixer) cream together the butter.
+- Step 3 -> ...
+- Last step -> eat the whole cake alone.
+
+* How would you do to change a car tire?
+
+* I'd do like this
+1 - Get the spare tire
+2 - Get the Jack (Auto-Affe) 
+3 - Put the jack under the car
+4 - Loose the screws
+5 - Lift the car
+6 - Change the tire
+7 - Lower the car
+8 - Tighten the screws
+9 - Put back the flat tire and jack into the trunk
+10 - Be happy
+
+* What about a sum?
+
+.image img/algorithm.png 580 600
+
+* Coding time
+
+* Final toughts
+
+- A tour of Go (German) https://go-tour-de.appspot.com/welcome/1
+
+* Final toughts
+
+Youtube:
+ - Just for func (https://www.youtube.com/channel/UC_BzFbxG2za3bp5NRRRXJSw)
+ - https://gophercises.com/
+
+
+
+
+
+
+
+
+
