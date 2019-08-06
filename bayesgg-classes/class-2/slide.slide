@@ -1,0 +1,213 @@
+Bayesgg Gophers
+2nd meeting - Decisions
+
+Thiago Trennepohl
+
+* Agenda
+
+- Decision structures
+- Relational operators
+- Logical operators
+
+* Decision structures
+
+.image if-then-else-construction.gif 300 600
+
+* Decision structures
+
+An if/else condition result must be always true or false
+
+E.G "Thiago" == "thiago" -> false
+
+* Relational operators
+
+You can use the following operators to compare variables or expressions
+
+Use   *==*   whenever you want to know if A is equal to B
+
+E.G  
+  "A" == "B" -> False
+  "A" == "A" -> True
+
+* Relational operators
+
+
+Use   "*!=*"   whenever you want to know if A is different than B
+
+E.G  
+  "A" != "B" -> True
+  "A" != "A" -> False
+
+* Relational operators
+
+
+Use  "*>*"   whenever you want to know if A is bigger than B
+
+E.G  
+  1 > 0 -> True
+  1 > 1 -> False
+  1 > 2 -> False
+  1 > -2 -> True
+
+* Relational operators
+
+
+Use   "*<*"   whenever you want to know if A is less than B
+
+E.G  
+  1 < 0 -> False
+  1 < 1 -> False
+  1 < 2 -> True
+  1 < -2 -> False
+
+* Relational operators
+
+Use   "*>=*"   whenever you want to know if A is bigger OR equal than B
+
+E.G  
+  1 >= 0 -> True
+  1 >= 1 -> True
+  1 >= 2 -> False
+  1 >= -2 -> True
+
+* Ari
+
+Use   "*<=*"   whenever you want to know if A is less OR equal than B
+
+E.G  
+  1 <= 0 -> False
+  1 <= 1 -> True
+  1 <= 2 -> True
+  1 <= -2 -> False
+
+* Decision structures
+A simple decision structure looks like this:
+
+  if 1 < 0 {
+      fmt.Println("This message will never be printed")
+  }
+
+* Decision structures
+In your code it should look like this:
+
+  func main(){
+    fmt.Println("The program has begun")
+    if 1 < 0 {
+        fmt.Println("This message will never be printed")
+    }
+    fmt.Println("The program has ended")
+  }
+
+* Decision structures
+As shown in the last class, you can have a "default" option for if statements, the ELSE.
+
+  func main(){
+    fmt.Println("The program has begun")
+    if 1 < 0 {
+        fmt.Println("This message will never be printed")
+    }else{
+        fmt.Println("It looks like 1 will never be less than 0")
+    }
+    fmt.Println("The program has ended")
+  }
+
+* Decision structures
+But sometimes you need to check more paths before continuing, for that we can use
+the ELSE IF
+
+  func main(){
+    fmt.Println("The program has begun")
+    if 1 < 0 {
+        fmt.Println("This message will never be printed")
+    }else if 1 == 1{
+        fmt.Println("1 IS equal to 1, which means the message above and the message below WILL 
+        NEVER be printed")
+    }else {
+        fmt.Println("It looks like 1 will never be less than 0")
+    }
+    fmt.Println("The program has ended")
+  }
+
+* Logical operators
+There are a few logical operators, but the most popular are:
+
+- AND -> &&
+- OR -> ||
+
+They are used to evaluate one or more logical expressions.
+
+E.G
+
+    if "thiago" != "Thiago" && "THIAGO" != "Thiago" {
+        fmt.Println("None of informed names are equal to Thiago")
+    }
+
+* Logical operators
+
+In the previous funcion the "&&"(AND) operator works(The result is true) because the result of both expressions
+- "thiago" != "Thiago" 
+- "THIAGO" != "Thiago" 
+
+Are TRUE, if any of the expressions above is false the "if statement" would not execute the print
+
+* Logical operators
+Try it out
+
+.play false.go
+
+
+* Logical operators
+
+The "||"(OR) operator works if any of the expressions is true. so it means that
+
+   if number == 1 || number == 0 {
+        fmt.Println("The value of number is 1 or 0")
+    }
+
+* Logical operators
+Try it out
+
+.play or.go
+
+* Exercises!
+
+Exercise 1 - Example
+
+Write a program that asks for the user to input a random number (is up to you the range) and the program should print which number comes next.
+
+  package main
+
+  import "fmt"
+
+  func main(){
+      var number int
+      fmt.Println("Please inform any number")
+      fmt.Scanln(&number)
+      fmt.Println(number + 1)
+  }
+
+* Exercise 2 
+
+Write a program that asks for the user to input two random numbers (one after another) and the program should print which one is bigger.
+
+
+* Exercise 3
+
+Write a program that asks for the user to input three random numbers (one after another) and the program should print which one is bigger.
+
+
+* Exercise 4
+
+Write a program that asks for the user to input three random numbers (one after another) and the program should print which one is bigger.
+
+* Exercise 5
+
+Create a simple calculator for Sum and Multiplication
+- The user must inform 2 numbers separadetely
+- The user must pick which operation the program should so
+- The program should show the ouput in the console
+
+tip -> if option == "+" {
+
+}else...
+
