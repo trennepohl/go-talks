@@ -15,14 +15,22 @@ Thiago Trennepohl
 
 * Decision structures
 
-An if/else condition result must be always true or false
+As discussed in the last class an if/else condition result must be always true or false
 
 E.G "Thiago" == "thiago" -> false
 
 * Relational operators
 
-You can use the following operators to compare variables or expressions
+Relational operators are used to compare/evaluate variables or expressions
+They are:
+- == (equal) 
+- >  (bigger than)
+- <  (less than)
+- >= (bigger or equal)
+- <= (less or equal)
+- != (Different than)
 
+* Relational operators
 Use   *==*   whenever you want to know if A is equal to B
 
 E.G  
@@ -162,7 +170,13 @@ The "||"(OR) operator works if any of the expressions is true. so it means that
 
    if number == 1 || number == 0 {
         fmt.Println("The value of number is 1 or 0")
+    }else{
+        fmt.Println("It seems your number is nor 1 or 0")
     }
+
+If any of the expressions is false the final result will still be true, but if both expressions are false.
+
+The final result will be false, and the else statement will be executed.
 
 * Logical operators
 Try it out
