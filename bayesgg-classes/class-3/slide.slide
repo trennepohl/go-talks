@@ -1,0 +1,128 @@
+Bayesgg Gophers
+3nd meeting - Slices and Loops
+
+Thiago Trennepohl
+
+* Slices
+
+Slices are similar to arrays, the difference is in the internals...
+
+While arrays have a fixed lenght, slices provide us a way to resize arrays and a few more things.
+
+Arrays are indexable collections of data, similar to a Book's index where you can quickly access the book content by its "address".
+An array element also have an index which can be used to access its value.
+
+you can find more at :
+.link https://www.callicoder.com/golang-slices/ callicoder-slices
+
+* Slices
+Slices can be declared like this:
+
+  package main
+
+  import "fmt"
+
+  func main(){
+    var alphabet []string
+  }
+
+In this case alphabet is a empty list of strings
+
+* Slices
+But you can also declare them like this:
+
+  package main
+
+  import "fmt"
+
+  func main(){
+    alphabet := []string{"a","b","c","d","e"}
+  }
+
+And here alphabet is a list of 5 strings.
+You can check the lenght of an array with:
+
+    len(alphabet)
+
+Remember! a slice index starts in 0
+
+* Slices
+As said in the first slide, a value can be accessed by its index:
+
+.play slices.go
+
+
+* Slices
+A nice thing that you can do with Slices is to slice them :D
+E.g I want to print the elements from index 0 to 3
+
+.play slicing.go
+
+
+* Slices
+The syntax
+
+  alphabet[:4]
+
+Means that I'm getting elements from the 1st position(index 0) to the 4th position(index 3).
+
+What if I want from the 2nd element(index 1) to the 4th element(index 3)?
+
+It would be like this:
+
+  fmt.Println(alphabet[1:4])
+
+The number before the colon is inclusive and the number after the colon is exclusive
+
+
+* Loops
+
+As we seen before, in golang you can loop lists in two ways:
+
+1:
+.play for.go
+
+* Loops
+
+In golang you can loop lists in two ways:
+
+2:
+.play range.go
+
+* Exercises
+
+Write a program to find the sum of first 10 natural numbers.
+
+
+* Exercises
+
+Write a program to show numbers from 0 to 100
+
+* Exercises
+
+What does the code below do?
+
+.code ex1.go
+
+
+* Exercises
+
+Using slices improve the calculator exercise (previous class) to allow the user to input more numbers
+
+
+* Exercises
+Write a program that registers users/people information and at the end you should print the "screen below"
+
+  Record 1
+  ================
+  Name: Anna
+  Age: 23
+  Profession: Actreess
+  ---
+  Record 2
+  ================
+  Name: John
+  Age: 30
+  Profession: Singer 
+  ---
+

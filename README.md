@@ -25,3 +25,4 @@ E então acessar no seu navegador de preferência o endereço: <br>
 
 - [1st class](https://talks.godoc.org/github.com/thiagotrennepohl/go-talks/bayesgg-classes/class-1/slide.slide#1)
 - [2nd class](https://talks.godoc.org/github.com/thiagotrennepohl/go-talks/bayesgg-classes/class-2/slide.slide#1)
+- [3rd class](https://talks.godoc.org/github.com/thiagotrennepohl/go-talks/bayesgg-classes/class-3/slide.slide#1)
