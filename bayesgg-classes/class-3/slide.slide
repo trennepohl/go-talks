@@ -125,3 +125,25 @@ Write a program that registers users/people information and at the end you shoul
   Profession: Singer 
   ---
 
+* Answers
+
+.link https://github.com/thiagotrennepohl/go-talks/blob/master/bayesgg-classes/class-3/ex2.go Exercise 1
+
+
+* Answers
+
+.link https://github.com/thiagotrennepohl/go-talks/blob/master/bayesgg-classes/class-3/ex3.go Exercise 2
+
+
+* Answers
+
+The code prints the numbers in the nL slice that are not divisible by 2
+
+* Answers
+
+.link https://github.com/thiagotrennepohl/go-talks/blob/master/bayesgg-classes/class-3/ex4.go Exercise 4
+
+* Answers
+
+.link https://github.com/thiagotrennepohl/go-talks/blob/master/bayesgg-classes/class-3/ex5.go Exercise 5
+
