@@ -1,0 +1,150 @@
+Bayesgg Gophers
+4th meeting - Functions - Packages - Structs
+
+Thiago Trennepohl
+
+
+
+* Functions
+
+Functions are blocks of small amount of code that contains reusable logic, basically they are shortcuts.
+
+functions can be created like this:
+
+  func SumTwoNumbers(x,y int) int {
+    return x+y
+  }
+
+
+* Functions
+
+let's take a closer look at the previous function
+
+  func
+Just the same as var, is used to declare a new function
+
+  SumTwoNumbers
+This is the function name, by this name you will be able to execute this function
+
+  (x,y int)
+The parenthesis, right after the function name are the parameters that the function is expecting, like a contract.
+If you try to execute the function withou fullfilling the contract, the compiler will complain.
+In this case you need to provide 2 integers.
+
+
+* Functions
+
+  int
+After the parenthesis we have this "int" alone, this is the return type of the function, again it is a  contract, if you declare a function and don't fullfill the contract... the compiler will complain.
+In this case we can use the reserved word return and use an integer as argument, e.g
+
+  return x+y
+
+  
+
+
+
+* Structs
+Struct is a typed collection of fields. Structs are useful for grouping data e.g
+
+  type Person struct {
+    Name string
+    Age int
+    Profession string
+  }
+
+Every time you declare a struct you are also declaring a new variable type, this means that I can now create variables like this:
+
+    var somePerson Person
+
+or like this
+
+    somePerson := Person{Name: "Mary", Age: 22, Profession: "Software Engineer"}
+
+* Structs
+
+And of course after declaring a variable of type Person 
+
+    somePerson := Person{Name: "Mary", Age: 22, Profession: "Software Engineer"}
+
+You will be able to access their atributes, e.g
+
+    fmt.Println(somePerson.Name)
+
+* Structs
+
+Now, what about we recreate the 5th exercise from last class using structs?
+
+* Packages
+
+Packages are namespaces/orgnizational units for code.
+You can think of a folder, similar to the ones in your computer.
+
+Golang packages also stands for modularization of your code e.g if you write a package generic enough you can import this package as a library into other go programs, just like fmt or strings
+
+So far we've been using only the main package for all of our codes but today we are going to learn a little bit more about packages and when to use them.
+
+
+* Packages
+
+Let's try it out!
+
+Create a folder next to your main.go file named models, in this folder we'll keep all of our new types (the ones that can be used system wide)
+
+Then create a file names person.go and pase the following
+
+    package models
+
+    type Person struct {
+      name string
+      age int
+      profession string
+    }
+
+Then in the main function declare a new variable like this:
+
+  somePerson := models.Person{Name: "Mary", Age: 22, Profession: "Software Engineer"}
+
+(Vscode should automagically import the models package)
+
+
+
+* Packages
+
+Why it didn't work?
+
+Because, the atributes name,age and profession are private atributes.. why?  just because they start with a lowercase
+
+When an atribute is private it means it can only be accessed by elements in its own package, but when a function/struct or variable name starts with a CAPITAL letter it will be public to all other packages
+
+
+* Packages
+
+In order to retrieve private atributes from Structs we can create Methods, and they look like the following
+
+  func (p Person) GetName() string {
+    return p.name
+  }
+
+  func (p *Person) SetName(name string) {
+    p.name = name
+  }
+
+With this we can retrieve and set values to private atributes
+
+* Exercises
+
+There will be only one exercise,Using packages and structs we are going to create a turn based Star Wars game.
+
+You are a Tie Fighter or a X-wing pilot and the goal is to defeat the enemy's most powerful ship.
+
+The game starts with the user informing its name and then selecting which type of ship you want to pilot.
+
+Then a message should ask the user if he/she is ready to start.
+
+After that another message will inform that the first enemy is approaching, and then the user must select between two options:
+Attack or "Use the force" (The player can use the force only once.)
+
+The player attack and the "enemy" attack should be generated randomically using the rand.Int() function
+
+If the player defeats all the 3 enemies, a success message should be shown, else a defeat message shoudl be shown.
